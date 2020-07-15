@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= `${title} | ${h.siteName}`
+    link(rel="icon" type="image/png" href="/images/favicon.png")
+    link(rel='stylesheet', href='/dist/style.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body
+    block header
+      header
+        div.absolute.left-0.top-0.mt-2.ml-3
+          a(href="/account").py-1.px-2.rounded-sm.ml-1.text-xs.font-medium.bg-white.border-2.border-netpurple.text-netpurple Account
+        a(href="/create").absolute.right-0.top-0.mt-2.mr-5.px-4.py-2.rounded-sm.border-2.border-netpurple.bg-netpurple.text-white.hover_bg-white.hover_text-netpurple.font-medium Post a Job 
+        div.banner-img
+          div.flex.justify-center.pt-16.md_pt-3
+            a(href="/")
+              img.logo.ml-auto.mr-auto.w-80(src="/images/dotnethouse-big.png")
+          div.pb-5.border-b
+            h1.mt-10.text-4xl.tracking-tight.leading-10.font-extrabold.text-gray-900.sm_text-5xl.sm_leading-none.md_text-6xl.text-center The Dedicated .NET Job Board
+            p.my-3.text-xl.text-gray-700.sm_mt-5.sm_text-lg.md_mt-5.md_text-2xl.lg_mx-0.text-center The #1 .NET job board, connecting the best talent with the best jobs.
+    block messages
+      if locals.flashes
+        .inner
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`flash--${category}`)
+                  p.flash__text!= message
+                  button.flash__remove(onClick="this.parentElement.remove()") &times;
+    .content
+      block content
+
+    block scripts
+      //- script(src="/dist/App.bundle.js")

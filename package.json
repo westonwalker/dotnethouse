@@ -1,0 +1,32 @@
+{
+  "name": "express-dotnethouse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "node ./start.js",
+    "watch": "npm run build:css && nodemon ./start.js --ignore public/",
+    "build:css": "postcss public/css/style.css -o public/dist/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^6.12.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "knex": "^0.21.2",
+    "moment": "^2.27.0",
+    "mysql": "^2.18.1",
+    "objection": "^2.2.1",
+    "passport": "^0.4.1",
+    "path": "^0.12.7",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "tailwindcss": "^1.4.6"
+  }
+}

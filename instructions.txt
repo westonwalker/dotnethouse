@@ -1,0 +1,34 @@
+1. mkdir myapp
+2. cd myapp
+3. npm install express --save
+4. create start.js
+<javascript>
+const express = require('express')
+const app = express()
+
+// Start our app!
+const app = require('./app');
+app.set('port', process.env.PORT || 3000);
+const server = app.listen(app.get('port'), () => {
+  console.log(`App running at: http://localhost:${server.address().port}`)
+});
+
+</javascript>
+4. create app.js
+<javascript>
+const express = require('express');
+
+const app = express();
+
+
+// done! we export it so we can start the site in start.js
+module.exports = app;
+</javascript>
+5. npm install knex --save
+6. npm install mysql
+7. npm install knex -g 
+- Global install for knex cli tools
+8. knex init
+- Creates knexfile.js for connection details
+9. npm install dotenv
+10. create routes, add index route to app.js
